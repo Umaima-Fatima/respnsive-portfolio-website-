@@ -702,18 +702,6 @@ h3.my-profession {
         max-width: 100%;
     }
 }
-/*@media only screen and (max-width: 600px){
-    #home {
-        background-image: url(images/phone-background.png);
-    }
-    .home-info {
-        margin-top: 100%;
-        font-size: 16px;
-    }
-    .home-info h3 {
-        font-size: 30px;
-    }
-}*/
 
 .social-icons {
     margin-top: 15px;
@@ -731,4 +719,10 @@ h3.my-profession {
 .social-icons a:hover {
     color: red;
     transform: translateY(-5px);
+}
+
+#msg {
+    color: #61b752;
+    margin-top: 10px;
+    display: block;
 }
