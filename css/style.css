@@ -684,7 +684,18 @@ h3.my-profession {
     }
 
     .home .home-img {
-        display: none;
+        padding: 4rem 2.5rem;
+        display: inline-table;
+    }
+
+    .home-img::before {
+        top: 25px;
+        margin-inline-start: -10px;
+    }
+    
+    .home-img::after {
+        bottom: 35px;
+        margin-inline-end: -20px;
     }
 }
 
