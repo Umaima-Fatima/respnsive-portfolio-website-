@@ -52,7 +52,7 @@ ul {
 }
 
 .main-content {
-    padding-left: 270px;
+   padding-left: 230px;
 }
 
 .padd-15 {
@@ -136,7 +136,7 @@ ul {
 
 /*----- Aside -----*/
 .aside {
-    width: 270px;
+    width: 230px;
     background: var(--bg-black-100);
     position: fixed;
     left: 0;
@@ -557,6 +557,10 @@ h3.my-profession {
     display: block;
 }
 
+#work {
+    margin-left: 10px;
+}
+
 /*----- Contact -----*/
 .contact-title {
     color: var(--skin-color);
@@ -737,3 +741,9 @@ h3.my-profession {
     margin-top: 10px;
     display: block;
 }
+
+/* CSS FOR PHONE SCREEN*/
+
+/*@media only screen and (max-width: 600px) {
+
+}*/
