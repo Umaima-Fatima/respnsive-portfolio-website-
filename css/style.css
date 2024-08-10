@@ -557,10 +557,6 @@ h3.my-profession {
   display: block;
 }
 
-#work {
-  margin-left: 12px;
-}
-
 /*----- Contact -----*/
 .contact-title {
   color: var(--skin-color);
@@ -608,7 +604,7 @@ h3.my-profession {
   margin: 15px 0 5px;
 }
 
-.contact .contact-info-item p {
+.contact .contact-info-item a {
   font-size: 16px;
   line-height: 25px;
   color: var(--text-black-700);
@@ -739,9 +735,3 @@ h3.my-profession {
   margin-top: 10px;
   display: block;
 }
-
-/* CSS FOR PHONE SCREEN*/
-
-/*@media only screen and (max-width: 600px) {
-
-}*/
