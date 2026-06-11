@@ -64,24 +64,67 @@
   width: 30px;
   border-radius: 50%;
   border: 1px solid red;
+  cursor: pointer;
 }
 
 .style-switcher .color-1 {
   background: #ec1839;
 }
-
 .style-switcher .color-2 {
   background: #fa5b0f;
 }
-
 .style-switcher .color-3 {
   background: #37b182;
 }
-
 .style-switcher .color-4 {
   background: #1854b4;
 }
-
 .style-switcher .color-5 {
   background: #f021b2;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1199px) {
+  /* Push switcher down so it clears the nav toggler button */
+  .style-switcher {
+    top: 110px;
+  }
+}
+
+@media (max-width: 767px) {
+  .style-switcher {
+    top: 100px;
+    width: 170px;
+    padding: 12px;
+  }
+
+  /* Shift open state flush — no gap on small screens */
+  .style-switcher.open {
+    transform: translateX(-10px);
+  }
+
+  /* Shrink the icon buttons slightly */
+  .style-switcher .s-icon {
+    height: 34px;
+    width: 34px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .style-switcher .s-icon i {
+    line-height: 34px;
+  }
+
+  .style-switcher .day-night {
+    top: 48px;
+  }
+
+  .style-switcher h4 {
+    font-size: 14px;
+  }
+
+  .style-switcher .colors span {
+    height: 26px;
+    width: 26px;
+  }
 }

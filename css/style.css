@@ -108,7 +108,6 @@ ul {
 .row {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content:center; */
   margin-left: -15px;
   margin-right: -15px;
   position: relative;
@@ -125,6 +124,7 @@ ul {
   border: none;
   background: var(--skin-color);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -135,7 +135,7 @@ ul {
   box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
 }
 
-/*----- Aside -----*/
+/* ===== ASIDE / SIDEBAR ===== */
 .aside {
   width: 230px;
   background: var(--bg-black-100);
@@ -148,7 +148,8 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
+  transition: left 0.3s ease;
 }
 
 .aside .logo {
@@ -193,34 +194,37 @@ ul {
   right: 0;
 }
 
+/* ===== NAV TOGGLER ===== */
 .aside .nav-toggler {
-  height: 6%;
+  height: 40px;
   width: 45px;
   border: 1px solid var(--bg-black-50);
   cursor: pointer;
   position: fixed;
-  left: 300px;
-  top: 20px;
+  left: 15px;
+  top: 15px;
   border-radius: 5px;
   background: var(--bg-black-100);
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 200;
+  transition: left 0.3s ease;
 }
 
-.aside .nav-toggler span {
+.aside .nav-toggler span,
+.aside .nav-toggler span::before,
+.aside .nav-toggler span::after {
   height: 2px;
   width: 18px;
   background: var(--skin-color);
   display: inline-block;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .aside .nav-toggler span::before {
   content: "";
-  height: 2px;
-  width: 18px;
-  background: var(--skin-color);
   position: absolute;
   top: -6px;
   left: 0;
@@ -228,12 +232,15 @@ ul {
 
 .aside .nav-toggler span::after {
   content: "";
-  height: 2px;
-  width: 18px;
-  background: var(--skin-color);
   position: absolute;
   top: 6px;
   left: 0;
+}
+
+/* Toggler open state — X icon */
+.aside.open ~ .nav-toggler,
+.nav-toggler.open {
+  left: 245px;
 }
 
 .aside .nav {
@@ -274,7 +281,20 @@ ul {
   margin-right: 12px;
 }
 
-/*----- Home -----*/
+/* Overlay for mobile nav */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.nav-overlay.active {
+  display: block;
+}
+
+/* ===== HOME ===== */
 .home {
   min-height: 100vh;
   display: flex;
@@ -347,7 +367,7 @@ h3.my-profession {
   border-radius: 6%;
 }
 
-/*----- About -----*/
+/* ===== ABOUT ===== */
 .about .about-content {
   flex: 0 0 100%;
   max-width: 100%;
@@ -357,17 +377,6 @@ h3.my-profession {
   flex: 0 0 100%;
   max-width: 100%;
 }
-
-/* .about .about-content .about-text h3 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  font-weight: 700;
-  color: var(--text-black-900);
-}
-
-.about .about-content .about-text h3 span {
-  color: var(--skin-color);
-} */
 
 .about .about-content .about-text p {
   font-size: 18px;
@@ -456,7 +465,7 @@ h3.my-profession {
   line-height: 50px;
 }
 
-/*----- Services -----*/
+/* ===== SERVICES ===== */
 .service .container {
   padding-bottom: 40px;
 }
@@ -522,7 +531,7 @@ h3.my-profession {
   line-height: 25px;
 }
 
-/*----- Portfolio -----*/
+/* ===== PORTFOLIO ===== */
 .portfolio .container {
   padding-bottom: 40px;
 }
@@ -561,7 +570,7 @@ h3.my-profession {
   display: block;
 }
 
-/*----- Contact -----*/
+/* ===== CONTACT ===== */
 .contact-title {
   color: var(--skin-color);
   text-align: center;
@@ -659,81 +668,7 @@ h3.my-profession {
   padding: 0 50px;
 }
 
-@media (max-width: 1199px) {
-  .aside {
-    left: -270px;
-  }
-
-  .main-content {
-    padding-left: 0;
-  }
-
-  .about .about-content .personal-info .info-item p span {
-    display: block;
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 991px) {
-  .portfolio .portfolio-item,
-  .service .service-item {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
-  .home .home-info {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  .home .home-img {
-    padding: 4rem 2.5rem;
-    display: inline-table;
-  }
-
-  .home-img::before {
-    top: 25px;
-    margin-inline-start: -10px;
-  }
-
-  .home-img::after {
-    bottom: 35px;
-    margin-inline-end: -20px;
-  }
-}
-
-@media (max-width: 767px) {
-  .contact .contact-form .col-6,
-  .contact .contact-info-item,
-  .portfolio .portfolio-item,
-  .service .service-item,
-  .about .about-content .experience,
-  .about .about-content .education,
-  .about .about-content .skills,
-  .about .about-content .personal-info {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 416px) {
-  .personal-info .info-item {
-    font-size: 0.5rem;
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 768px) {
-  .another {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-.another {
-  display: flex;
-}
-
+/* ===== SOCIAL ICONS ===== */
 .social-icons {
   margin-top: 15px;
 }
@@ -756,4 +691,263 @@ h3.my-profession {
   color: var(--skin-color);
   margin-top: 10px;
   display: block;
+}
+
+/* ===== SCROLL TO TOP ===== */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--skin-color);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 300;
+  border: none;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.scroll-top:hover {
+  transform: scale(1.1);
+}
+
+/* ===========================
+   RESPONSIVE BREAKPOINTS
+   =========================== */
+
+/* Large tablets / small desktops */
+@media (max-width: 1199px) {
+  .aside {
+    left: -270px;
+  }
+
+  .aside.open {
+    left: 0;
+  }
+
+  .main-content {
+    padding-left: 0;
+  }
+
+  .aside .nav-toggler {
+    display: flex;
+    left: 15px;
+  }
+
+  /* Move toggler when sidebar is open */
+  .aside.open + .nav-overlay + .nav-toggler,
+  .aside.open ~ .nav-toggler {
+    left: 245px;
+  }
+
+  .about .about-content .personal-info .info-item p span {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+  .portfolio .portfolio-item,
+  .service .service-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .home .home-info {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .home .home-img {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 4rem 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-img::before {
+    top: 25px;
+    left: 50px;
+  }
+
+  .home-img::after {
+    bottom: 35px;
+    right: 50px;
+  }
+
+  .home-info p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .about .about-content .personal-info,
+  .about .about-content .skills {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .section {
+    padding: 0 15px;
+  }
+
+  .contact .contact-form .col-6,
+  .contact .contact-info-item,
+  .portfolio .portfolio-item,
+  .service .service-item,
+  .about .about-content .experience,
+  .about .about-content .education,
+  .about .about-content .skills,
+  .about .about-content .personal-info {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .about .about-content .skills .skill-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .about .about-content .personal-info .info-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  h3.hello,
+  h3.my-profession {
+    font-size: 20px;
+  }
+
+  h3.hello span {
+    font-size: 20px;
+  }
+
+  .home-info p {
+    font-size: 15px;
+  }
+
+  .home .home-img img {
+    height: 250px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .contact .contact-content .contact-text p {
+    font-size: 16px;
+  }
+
+  .contact-title {
+    font-size: 20px;
+  }
+
+  .buttons .btn {
+    margin-right: 10px;
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+
+  .portfolio .portfolio-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .projects.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .social-icons[data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .home .home-img img {
+    height: 200px;
+  }
+
+  .home-img::before,
+  .home-img::after {
+    height: 35px;
+    width: 35px;
+  }
+
+  .home-img::before {
+    border-top-width: 6px;
+    border-left-width: 6px;
+    left: 20px;
+    top: 15px;
+  }
+
+  .home-img::after {
+    border-bottom-width: 6px;
+    border-right-width: 6px;
+    right: 20px;
+    bottom: 15px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+
+  .section-title {
+    margin-bottom: 40px;
+  }
+
+  .about .about-content .skills .skill-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Landscape mobile — prevent sidebar from covering content */
+@media (max-height: 500px) and (max-width: 900px) {
+  .aside {
+    overflow-y: auto;
+  }
+
+  .aside .logo {
+    top: 20px;
+  }
+
+  .aside .nav {
+    margin-top: 80px;
+  }
+}
+
+/* ===== LAYOUT HELPERS ===== */
+@media (min-width: 768px) {
+  .another {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.another {
+  display: flex;
 }
